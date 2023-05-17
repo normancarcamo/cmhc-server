@@ -77,10 +77,10 @@ export const calculateMortgage = (params: CalculateMortgageParams) => {
 
   const mortgageAmount = params.propertyPrice - params.downPayment;
 
-  const cmhc = { insurance: 0, mortgageAmount: 0, monthlyPayment: {} };
+  const cmhc = { insurance: 0, mortgageAmount: 0, payment: {} };
   cmhc.insurance = getCMHCInsurance(downPaymentPercentage, mortgageAmount);
   cmhc.mortgageAmount = mortgageAmount + cmhc.insurance;
-  cmhc.monthlyPayment = getMonthlyPaymentInfo(
+  cmhc.payment = getMonthlyPaymentInfo(
     cmhc.mortgageAmount,
     params.annualInterestRate,
     params.amortizationPeriod
